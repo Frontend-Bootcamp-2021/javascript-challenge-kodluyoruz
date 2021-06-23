@@ -1,11 +1,67 @@
-.home {
-  background-color: $home-bgcolor;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
 
-	// NOTES: set CSS variables on assets/scss/globals/_variables.scss
-	// background-color: var(--home-color);
+:root {
+	--color: #333;
+}
 
-  @include mq(tablet, min) {
-    background-color: #800080;
-  }
+* {
+	box-sizing: border-box;
+	padding: 0px;
+	margin: 0;
+}
 
+main {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+body {
+	font-family: "Inter", sans-serif;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.cards {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: center;
+
+	&__box {
+		text-transform: capitalize;
+		background-color: rgba(0, 0, 0, 0.1);
+		width: 400px;
+		height: 250px;
+		margin: 10px 0px 30px 40px;
+		border-radius: 2%;
+
+		&__group {
+			padding: 5px;
+			text-align: center;
+		}
+		&__assistant {
+			text-align: center;
+			font-size: 13px;
+			color: var(--color);
+			padding: 0 0 5px;
+		}
+		&__title {
+			text-align: center;
+			font-size: 17px;
+			color: rgba(0, 0, 0, 0.9);
+			font-weight: 600;
+		}
+
+		&__list {
+			list-style: none;
+			padding: 5px;
+			li {
+				padding: 0 0 8px 15px;
+				font-size: 15px;
+				color: var(--color);
+				font-weight: 400;
+			}
+		}
+	}
 }
