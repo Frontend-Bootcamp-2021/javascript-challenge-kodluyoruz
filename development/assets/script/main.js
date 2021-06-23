@@ -1,3 +1,86 @@
+document.addEventListener('DOMContentLoaded' , () => {
+
+	//assistan grouping
+	const assistants = data.filter((person) => person.assistant == true);
+
+	//Adding same grouped + non-assistant students as a members property
+	for (const index in assistants) {
+  	 let members = data.filter((student) => student.group == assistants[index].group && student.assistant == false);
+  	 assistants[index].members = members;
+	assistants[index].group == 'Fuscia' ? assistants[index].group='Fuchsia':''
+	}
+
+	console.log(assistants)
+
+	//Checking index of  duplicate property value
+	function checkDuplicate(names) {
+		
+		var denemeArr = names.map(function(item) {return item.name});
+		var isDeneme = denemeArr.some(function(item,idx) {
+			let index = denemeArr.indexOf(item) != idx ? denemeArr.indexOf(item) : '';
+			//console.log(index)
+		});
+
+	// removing duplicate function will be here
+
+	}
+	checkDuplicate(data);
+
+	// Mapping member names and creating list
+
+	function memberName(assistant) {
+		let name = assistant.members.map((student) => student.name);
+		//console.log(assistant.members)
+	
+
+		return `
+		<h6 class='cards__box__title'>Members</h6>
+		<ul class='cards__box__list'>
+		${name.map(function(name) {
+			return `
+			<li >${name}</li>
+			`
+		}).join('')}
+		</ul>
+		`
+
+	}
+
+	//Mapping assistant names and groups from data
+
+	function memberCard(assistant) {
+		
+		let group = assistant.members.map((student) => student.group);
+		 group[0] == 'Fuscia' ? group[0]='Fuchsia' : ''
+		 group[1] == 'Fuscia' ? group[1]='Fuchsia' :''
+		 //console.log(group)
+		
+		
+		
+		return `<div  class='
+		cards__box'>
+		<h4  style='color: ${group[0]} ; font-size: 20px ' class='cards__box__group'>${assistant.group}<h4>
+		<h6 class='cards__box__assistant'>${assistant.name}</h6>
+		${assistant.group == group[0] ? 
+		memberName(assistant)
+		 : ''}
+		
+		
+		
+		</div>
+		`
+		
+	}
+
+	document.getElementById('cards').innerHTML = `
+	${assistants.map(memberCard).join('')}
+	`
+	
+
+
+})
+
+
 let data = [
 	{
 		"id": 1,
@@ -312,5 +395,6 @@ let data = [
 		"group": "Yellow"
 	}
 ];
+// console.log('👻', data)
 
-console.log('👻', data)
+
