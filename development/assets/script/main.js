@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded' , () => {
 	//Checking index of  duplicate property value
 	function checkDuplicate(names) {
 		
-		var denemeArr = names.map(function(item) {return item.name});
-		var isDeneme = denemeArr.some(function(item,idx) {
-			let index = denemeArr.indexOf(item) != idx ? denemeArr.indexOf(item) : '';
+		var namesArr = names.map(function(item) {return item.name});
+		var isnames = namesArr.some(function(item,idx) {
+			let index = namesArr.indexOf(item) != idx ? namesArr.indexOf(item) : '';
 			//console.log(index)
 		});
 
